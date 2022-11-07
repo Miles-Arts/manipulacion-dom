@@ -44,7 +44,7 @@ const createTask = (evento) => {
     taskList.push(taskObj);
 
 
-    localStorage.setItem("tasks", JSON.stringify(taskList));
+    localStorage.setItem("tasks", JSON.stringify(taskObj));
 
     taskContent.appendChild(checkComplete());
     const titleTask = document.createElement("span");
