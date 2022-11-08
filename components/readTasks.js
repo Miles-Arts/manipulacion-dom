@@ -2,10 +2,9 @@ import { createTask } from "./addTask.js";
 import { uniqueDates }  from "../services/date.js";
 import dateElement from "./dateElement.js";
 
-export const readTasks = () => {
+export const displayTasks = () => {
 
     const list = document.querySelector("[data-list]");
-    console.log(list);
 
     const tasksList = JSON.parse(localStorage.getItem("tasks")) || [];
     //console.log(dateElement("14/09/2022"));
@@ -22,13 +21,11 @@ export const readTasks = () => {
             const taskDate = moment(task.dateFormat, "DD/MM/YYYY");
             const diff = dateMoment.diff(taskDate);
 
-            console.log(diff);
-
             if ( diff == 0) {
 
                 list.appendChild(createTask(task));
-                
+
             };
         });
-    })
+    });
 };
