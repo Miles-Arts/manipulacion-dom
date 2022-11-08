@@ -3,11 +3,9 @@ import deleteIcon from "./deleteIcon.js";
 
 export const addTask = (evento) => {
 
-    const list = document.querySelector("[data-list]");
-
     evento.preventDefault();
-    const taskList = JSON.parse(localStorage.getItem("tasks"))  ||  [];
-    console.log(taskList);
+
+    const list = document.querySelector("[data-list]");
     const input = document.querySelector("[data-form-input]");
     const calendar = document.querySelector("[data-form-date]");
 
@@ -15,27 +13,35 @@ export const addTask = (evento) => {
     const date = calendar.value;
 
     const dateFormat = moment(date).format("DD/MM/YYYY");
-    console.log(dateFormat);
 
-    const task = createTask(evento);
-    list.appendChild(task);
-}
 
-const createTask = (evento) => {
 
-    const task = document.createElement("li");
-    task.classList.add("card");
- 
-    const taskContent = document.createElement("div");
+    input.value = "";
+    calendar.value = "";
 
     const taskObj = {
         value,
         dateFormat,
     };
 
-    taskList.push(taskObj);
+    const taskList = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    taskList.push(value, dateFormat);
 
     localStorage.setItem("tasks", JSON.stringify(taskList));
+
+    const task = createTask(taskObj);
+    list.appendChild(task);
+
+}
+
+const createTask = ({ value, dateFormat }) => {
+
+    const task = document.createElement("li");
+    task.classList.add("card");
+
+    const taskContent = document.createElement("div");
+
 
     const titleTask = document.createElement("span");
     titleTask.classList.add("task");
