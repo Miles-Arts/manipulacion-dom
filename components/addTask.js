@@ -11,10 +11,7 @@ export const addTask = (evento) => {
 
     const value = input.value;
     const date = calendar.value;
-
     const dateFormat = moment(date).format("DD/MM/YYYY");
-
-
 
     input.value = "";
     calendar.value = "";
@@ -26,7 +23,7 @@ export const addTask = (evento) => {
 
     const taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 
-    taskList.push(value, dateFormat);
+    taskList.push(taskObj);
 
     localStorage.setItem("tasks", JSON.stringify(taskList));
 
