@@ -1,16 +1,9 @@
 import checkComplete from "./checkComplete.js";
 import deleteIcon from "./deleteIcon.js";
 
-
 export const addTask = (evento) => {
 
     const list = document.querySelector("[data-list]");
-    const task = createTask(evento);
-    list.appendChild(task);
-
-}
-
-const createTask = (evento) => {
 
     evento.preventDefault();
     const taskList = JSON.parse(localStorage.getItem("tasks"))  ||  [];
@@ -24,13 +17,16 @@ const createTask = (evento) => {
     const dateFormat = moment(date).format("DD/MM/YYYY");
     console.log(dateFormat);
 
+    const task = createTask(evento);
+    list.appendChild(task);
+}
+
+const createTask = (evento) => {
+
     const task = document.createElement("li");
     task.classList.add("card");
-    input.value = "";
-    // BACKTICKS
+ 
     const taskContent = document.createElement("div");
-
-    //console.log(value, dateFormat);
 
     const taskObj = {
         value,
@@ -46,7 +42,6 @@ const createTask = (evento) => {
     titleTask.innerText = value;
     taskContent.appendChild(checkComplete());
     taskContent.appendChild(titleTask);
-    // TASK.INNERHTML
 
     const dateElement = document.createElement("span");
 
