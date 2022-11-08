@@ -12,14 +12,23 @@ export const readTasks = () => {
     const dates = uniqueDates(tasksList);
 
     dates.forEach( date => {
-        console.log(date);
+
+        const dateMoment = moment(date, "DD/MM/YYYY");
+
+        list.appendChild(dateElement(date))
+
+        tasksList.forEach((task) => {
+
+            const taskDate = moment(task.dateFormat, "DD/MM/YYYY");
+            const diff = dateMoment.diff(taskDate);
+
+            console.log(diff);
+
+            if ( diff == 0) {
+
+                list.appendChild(createTask(task));
+                
+            };
+        });
     })
-
-    tasksList.forEach((task) => {
-
-        list.appendChild(dateElement(task.dateFormat));
-
-        list.appendChild(createTask(task));
-
-    });
 };
