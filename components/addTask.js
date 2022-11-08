@@ -13,7 +13,7 @@ export const addTask = (evento) => {
     const date = calendar.value;
     const dateFormat = moment(date).format("DD/MM/YYYY");
 
-    if (value === "" || date === ""  ) {
+    if (value ==  "" || date ==  ""  ) {
         return 
     }
 

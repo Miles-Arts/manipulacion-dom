@@ -10,4 +10,4 @@ export default (date) => {
     dateElement.innerHTML = date;
     return dateElement;
 
-}
+};
