@@ -35,27 +35,27 @@ export const addTask = (evento) => {
 
 }
 
-const createTask = ({ value, dateFormat }) => {
+export const createTask = ({ value, dateFormat }) => {
 
     const task = document.createElement("li");
-    task.classList.add("card");
+        task.classList.add("card");
 
     const taskContent = document.createElement("div");
 
 
     const titleTask = document.createElement("span");
-    titleTask.classList.add("task");
-    titleTask.innerText = value;
-    taskContent.appendChild(checkComplete());
-    taskContent.appendChild(titleTask);
+        titleTask.classList.add("task");
+        titleTask.innerText = value;
+        taskContent.appendChild(checkComplete());
+        taskContent.appendChild(titleTask);
 
     const dateElement = document.createElement("span");
 
-    dateElement.innerHTML = dateFormat;
+        dateElement.innerHTML = dateFormat;
 
-    task.appendChild(taskContent);
-    task.appendChild(dateElement);
-    task.appendChild(deleteIcon());
+        task.appendChild(taskContent);
+        task.appendChild(dateElement);
+        task.appendChild(deleteIcon());
     return task;
 
 };
