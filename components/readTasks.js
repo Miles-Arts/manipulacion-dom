@@ -4,15 +4,14 @@ import dateElement from "./dateElement.js";
 
 export const displayTasks = () => {
 
+    //console.log(uuid.v4())
+
     const list = document.querySelector("[data-list]");
 
     const tasksList = JSON.parse(localStorage.getItem("tasks")) || [];
     //console.log(dateElement("14/09/2022"));
     const dates = uniqueDates(tasksList);
-    const order = orderDates(dates);
-
-    console.log(order);
-
+    orderDates(dates);
 
     dates.forEach( date => {
 
