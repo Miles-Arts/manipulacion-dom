@@ -53,6 +53,8 @@ export const createTask = ({ value, dateFormat, complete, id }) => {
 
     console.log(complete);
 
+    const check = checkComplete(id);
+
     if (complete) {
 
       console.log("completada");  
@@ -62,7 +64,7 @@ export const createTask = ({ value, dateFormat, complete, id }) => {
     const titleTask = document.createElement("span");
         titleTask.classList.add("task");
         titleTask.innerText = value;
-        taskContent.appendChild(checkComplete(id));
+        taskContent.appendChild(check);
         taskContent.appendChild(titleTask);
 
     const dateElement = document.createElement("span");
