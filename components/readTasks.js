@@ -1,5 +1,5 @@
 import { createTask } from "./addTask.js";
-import { uniqueDates }  from "../services/date.js";
+import { uniqueDates, orderDates }  from "../services/date.js";
 import dateElement from "./dateElement.js";
 
 export const displayTasks = () => {
@@ -9,6 +9,10 @@ export const displayTasks = () => {
     const tasksList = JSON.parse(localStorage.getItem("tasks")) || [];
     //console.log(dateElement("14/09/2022"));
     const dates = uniqueDates(tasksList);
+    const order = orderDates(dates);
+
+    console.log(order);
+
 
     dates.forEach( date => {
 
